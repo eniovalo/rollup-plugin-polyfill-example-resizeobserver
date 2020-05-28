@@ -3,6 +3,7 @@
 Example of rollup-plugin-polyfill with resizeObserver Polyfill.
 
 An example of using ResizeObserver:
+
 ```javascript
 const div = document.getElementById('myDIV');
 div.innerText = 'My default width is ' + div.offsetWidth;
@@ -16,9 +17,19 @@ resizeObserver.observe(div);
 ```
 
 If I use *rollup-plugin-polyfill* with *resize-observer-polyfill*, it changes the function `ResizeObserver` to `ResizeObserver$1`. I think it is conflicting with `new ResizeObserver` .
+
 ```javascript
 const polyfill = require('rollup-plugin-polyfill');
 const plugins = [
   polyfill(['resize-observer-polyfill']),
 ]
 ```
+
+## Instruction
+
+1. Execute `npm install`
+2. Choose a build format:
+    - IIFE: `npm run build-iife`
+    - Commonjs: `npm run build-commonjs`
+    - UMD: `npm run build-umd`
+3. *bundle.js* generated.
